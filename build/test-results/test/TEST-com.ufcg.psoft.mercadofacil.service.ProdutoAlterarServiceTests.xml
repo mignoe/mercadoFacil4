@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Testes do Serviço de alteração do produto" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-04-21T22:34:21" hostname="fedora" time="0.184">
+  <properties/>
+  <testcase name="Quando altero o preço do produto com um valor válido" classname="com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests" time="0.042"/>
+  <testcase name="Quando um novo nome válido for fornecido para o produto" classname="com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests" time="0.042"/>
+  <testcase name="Quando altero o fabricante do produto com um fabricante válido" classname="com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests" time="0.045"/>
+  <testcase name="Quando o preço é menor ou igual a zero" classname="com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests" time="0.033"/>
+  <system-out><![CDATA[2023-04-21T19:34:21.974-03:00  INFO 45710 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests]: ProdutoAlterarServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-04-21T19:34:21.984-03:00  INFO 45710 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.ufcg.psoft.mercadofacil.MercadoFacilApplication for test class com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: update produtos set codigo_de_barras=?, fabricante=?, nome=?, preco=? where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

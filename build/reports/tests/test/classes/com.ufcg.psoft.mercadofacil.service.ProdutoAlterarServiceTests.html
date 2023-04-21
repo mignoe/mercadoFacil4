@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Testes do Serviço de alteração do produto</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Testes do Serviço de alteração do produto</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ufcg.psoft.mercadofacil.service.html">com.ufcg.psoft.mercadofacil.service</a> &gt; ProdutoAlterarServiceTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.162s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Quando altero o fabricante do produto com um fabricante válido</td>
+<td class="success">alterarFabricanteDoProduto()</td>
+<td class="success">0.045s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Quando altero o preço do produto com um valor válido</td>
+<td class="success">alterarPrecoDoProduto()</td>
+<td class="success">0.042s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Quando o preço é menor ou igual a zero</td>
+<td class="success">precoMenorIgualAZero()</td>
+<td class="success">0.033s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Quando um novo nome válido for fornecido para o produto</td>
+<td class="success">quandoNovoNomeValido()</td>
+<td class="success">0.042s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2023-04-21T19:34:21.974-03:00  INFO 45710 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests]: ProdutoAlterarServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-04-21T19:34:21.984-03:00  INFO 45710 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.ufcg.psoft.mercadofacil.MercadoFacilApplication for test class com.ufcg.psoft.mercadofacil.service.ProdutoAlterarServiceTests
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: update produtos set codigo_de_barras=?, fabricante=?, nome=?, preco=? where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+0 100
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at Apr 21, 2023, 7:34:23 PM</p>
+</div>
+</div>
+</body>
+</html>

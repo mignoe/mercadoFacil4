@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-04-21T22:34:20" hostname="fedora" time="0.985">
+  <properties/>
+  <testcase name="Quando compro lote parcialmente e o lote não tem itens suficientes" classname="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" time="0.158"/>
+  <testcase name="Quando compro lote parcialmente e o lote não tem itens suficientes" classname="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" time="0.164"/>
+  <testcase name="comprarLoteInteiro()" classname="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" time="0.238"/>
+  <testcase name="Comprar lote inexistente inteiro" classname="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" time="0.196"/>
+  <testcase name="assertTrue()" classname="com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests" time="0.205"/>
+  <system-out><![CDATA[2023-04-21T19:34:20.592-03:00  INFO 45710 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests]: CarrinhoDeComprasComprarServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-04-21T19:34:20.629-03:00  INFO 45710 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.ufcg.psoft.mercadofacil.MercadoFacilApplication for test class com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into lotes (numero_de_itens, produto_id, id) values (?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: insert into clientes (cpf, endereco, idade, nome, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into carrinhos (cliente_id) values (?)
+Hibernate: select c1_0.id,c2_0.cliente_id,l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0 join carrinhos c2_0 on c1_0.id=c2_0.cliente_id left join (lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id) on c2_0.cliente_id=l1_0.carrinho_cliente_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where c1_0.id=?
+Hibernate: select l1_0.id,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select c1_0.id,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where l1_0.carrinho_cliente_id=?
+Hibernate: delete from carrinhos where cliente_id=?
+Hibernate: delete from clientes where id=?
+Hibernate: select c1_0.cliente_id from carrinhos c1_0
+Hibernate: select l1_0.id,l1_0.numero_de_itens,l1_0.produto_id from lotes l1_0
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0 where p1_0.id=?
+Hibernate: delete from lotes_carrinho where lote_id=?
+Hibernate: delete from lotes where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into lotes (numero_de_itens, produto_id, id) values (?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: insert into clientes (cpf, endereco, idade, nome, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into carrinhos (cliente_id) values (?)
+Hibernate: select c1_0.id,c2_0.cliente_id,l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0 join carrinhos c2_0 on c1_0.id=c2_0.cliente_id left join (lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id) on c2_0.cliente_id=l1_0.carrinho_cliente_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where c1_0.id=?
+Hibernate: select l1_0.id,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select c1_0.id,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where l1_0.carrinho_cliente_id=?
+Hibernate: delete from carrinhos where cliente_id=?
+Hibernate: delete from clientes where id=?
+Hibernate: select c1_0.cliente_id from carrinhos c1_0
+Hibernate: select l1_0.id,l1_0.numero_de_itens,l1_0.produto_id from lotes l1_0
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0 where p1_0.id=?
+Hibernate: delete from lotes_carrinho where lote_id=?
+Hibernate: delete from lotes where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into lotes (numero_de_itens, produto_id, id) values (?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: insert into clientes (cpf, endereco, idade, nome, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into carrinhos (cliente_id) values (?)
+Hibernate: select c1_0.id,c2_0.cliente_id,l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0 join carrinhos c2_0 on c1_0.id=c2_0.cliente_id left join (lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id) on c2_0.cliente_id=l1_0.carrinho_cliente_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where c1_0.id=?
+Hibernate: select l1_0.id,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: update lotes set numero_de_itens=?, produto_id=? where id=?
+Hibernate: select l1_0.id,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select c1_0.id,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where l1_0.carrinho_cliente_id=?
+Hibernate: delete from carrinhos where cliente_id=?
+Hibernate: delete from clientes where id=?
+Hibernate: select c1_0.cliente_id from carrinhos c1_0
+Hibernate: select l1_0.id,l1_0.numero_de_itens,l1_0.produto_id from lotes l1_0
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0 where p1_0.id=?
+Hibernate: delete from lotes_carrinho where lote_id=?
+Hibernate: delete from lotes where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into lotes (numero_de_itens, produto_id, id) values (?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: insert into clientes (cpf, endereco, idade, nome, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into carrinhos (cliente_id) values (?)
+Hibernate: select c1_0.id,c2_0.cliente_id,l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0 join carrinhos c2_0 on c1_0.id=c2_0.cliente_id left join (lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id) on c2_0.cliente_id=l1_0.carrinho_cliente_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where c1_0.id=?
+Hibernate: select l1_0.id,l1_0.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes l1_0 join produtos p1_0 on p1_0.id=l1_0.produto_id where l1_0.id=?
+Hibernate: select c1_0.id,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where l1_0.carrinho_cliente_id=?
+Hibernate: delete from carrinhos where cliente_id=?
+Hibernate: delete from clientes where id=?
+Hibernate: select c1_0.cliente_id from carrinhos c1_0
+Hibernate: select l1_0.id,l1_0.numero_de_itens,l1_0.produto_id from lotes l1_0
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0 where p1_0.id=?
+Hibernate: delete from lotes_carrinho where lote_id=?
+Hibernate: delete from lotes where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+Hibernate: insert into produtos (codigo_de_barras, fabricante, nome, preco, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into lotes (numero_de_itens, produto_id, id) values (?, ?, ?)
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,l1_0.produto_id,l1_0.id,c1_0.lote_id,c1_1.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome,l1_0.numero_de_itens,p1_0.nome,p1_0.preco from produtos p1_0 left join lotes l1_0 on p1_0.id=l1_0.produto_id left join (lotes_carrinho c1_0 join carrinhos c1_1 on c1_1.cliente_id=c1_0.carrinho_cliente_id) on l1_0.id=c1_0.lote_id left join clientes c2_0 on c2_0.id=c1_1.cliente_id where p1_0.id=?
+Hibernate: insert into clientes (cpf, endereco, idade, nome, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into carrinhos (cliente_id) values (?)
+Hibernate: select c1_0.id,c2_0.cliente_id,l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0 join carrinhos c2_0 on c1_0.id=c2_0.cliente_id left join (lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id) on c2_0.cliente_id=l1_0.carrinho_cliente_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.cpf,c1_0.endereco,c1_0.idade,c1_0.nome from clientes c1_0
+Hibernate: select c1_0.cliente_id,c2_0.id,c2_0.cpf,c2_0.endereco,c2_0.idade,c2_0.nome from carrinhos c1_0 join clientes c2_0 on c2_0.id=c1_0.cliente_id where c1_0.cliente_id=?
+Hibernate: select l1_0.carrinho_cliente_id,l1_1.id,l1_1.numero_de_itens,p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from lotes_carrinho l1_0 join lotes l1_1 on l1_1.id=l1_0.lote_id left join produtos p1_0 on p1_0.id=l1_1.produto_id where l1_0.carrinho_cliente_id=?
+Hibernate: delete from carrinhos where cliente_id=?
+Hibernate: delete from clientes where id=?
+Hibernate: select c1_0.cliente_id from carrinhos c1_0
+Hibernate: select l1_0.id,l1_0.numero_de_itens,l1_0.produto_id from lotes l1_0
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0 where p1_0.id=?
+Hibernate: delete from lotes_carrinho where lote_id=?
+Hibernate: delete from lotes where id=?
+Hibernate: select p1_0.id,p1_0.codigo_de_barras,p1_0.fabricante,p1_0.nome,p1_0.preco from produtos p1_0
+Hibernate: select l1_0.produto_id,l1_0.id,l1_0.numero_de_itens from lotes l1_0 where l1_0.produto_id=?
+Hibernate: delete from produtos where id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
