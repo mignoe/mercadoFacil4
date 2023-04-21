@@ -1,0 +1,1 @@
+[engine:junit-jupiter]/[class:com.ufcg.psoft.mercadofacil.service.CarrinhoDeComprasComprarServiceTests]/[method:comprarLoteParcialmenteComLoteInexistente()]

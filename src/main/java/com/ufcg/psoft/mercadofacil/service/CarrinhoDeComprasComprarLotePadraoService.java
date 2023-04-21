@@ -44,9 +44,6 @@ public class CarrinhoDeComprasComprarLotePadraoService implements CarrinhoDeComp
 
         Lote lote = loteRepository.findById(loteId).orElse(null);
 
-
-        int numItens = lote.getNumeroDeItens();
-
         if (lote == null) {
             throw new RuntimeException("Lote inexistente");
         }
@@ -64,7 +61,7 @@ public class CarrinhoDeComprasComprarLotePadraoService implements CarrinhoDeComp
         carrinho.setLote(new HashSet<>());
         carrinho.getLote().add(lote);
 
-        lote.setNumeroDeItens(numItens - qtdItens);
+        lote.setNumeroDeItens(lote.getNumeroDeItens() - qtdItens);
 
         // settando lote do carrinho de volta a nulo
         carrinho.getLote().remove(lote);

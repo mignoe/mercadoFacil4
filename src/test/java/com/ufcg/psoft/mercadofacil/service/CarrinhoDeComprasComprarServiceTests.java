@@ -129,7 +129,7 @@ public class CarrinhoDeComprasComprarServiceTests {
     }
 
     @Test
-    @DisplayName("Quando compro lote parcialmente e o lote não tem itens suficientes")
+    @DisplayName("Quando compro lote parcialmente com quantidade de itens negativa")
     void comprarLoteParcialmenteComValorNegativo() {
 
         RuntimeException thrown = Assertions.assertThrows( RuntimeException.class,
@@ -139,5 +139,18 @@ public class CarrinhoDeComprasComprarServiceTests {
         );
 
         assertEquals(thrown.getMessage(), "Número de itens iválido (negativo)");
+    }
+
+    @Test
+    @DisplayName("Quando compro lote parcialmente com lote inexistente")
+    void comprarLoteParcialmenteComLoteInexistente() {
+
+        RuntimeException thrown = Assertions.assertThrows( RuntimeException.class,
+                () -> {
+                    driver.comprarLoteParcial(cliente, lote.getId() + 30, 3);
+                }
+        );
+
+        assertEquals(thrown.getMessage(), "Lote inexistente");
     }
 }
